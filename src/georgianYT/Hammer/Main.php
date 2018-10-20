@@ -24,7 +24,7 @@ class Main extends PluginBase implements Listener {
 		switch($cmd->getName()){
 			case "hammer":
 				if($sender instanceof Player) {
-					if($sender->hasPermission("cp.give")){
+					if($sender->hasPermission("hammer.give")){
 						if(count($args) === 1){
 							$playerName = $this->getServer()->getPlayerExact($args[0]);
 							if($playerName instanceof Player){
