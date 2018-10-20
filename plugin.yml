@@ -1,6 +1,6 @@
-name: georgianYT
+name: Hammer
 main: georgianYT\Hammer\Main
-api: [3.2.0]
+api: [3.0.0]
 version: 1.0
 website: https://github.com/georgianYT/Hammer-PMMP/
 author: georgianYT
