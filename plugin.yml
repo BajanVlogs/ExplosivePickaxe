@@ -6,7 +6,6 @@ website: https://github.com/georgianYT/Hammer-PMMP/
 author: georgianYT
 
 commands:
- hammer:
-  description: "Give you a Hammer !"
-  permission: hammer.give
- 
+  hammer:
+    description: "Give you a Hammer!"
+    permission: hammer.give
