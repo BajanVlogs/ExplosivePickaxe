@@ -45,23 +45,24 @@ class Main extends PluginBase implements Listener {
     return false;
 }
 
-    public function onBlockBreak(BlockBreakEvent $event) {
-        $player = $event->getPlayer();
-        $item = $event->getItem();
-        $block = $event->getBlock();
+  public function onBlockBreak(BlockBreakEvent $event) {
+    $player = $event->getPlayer();
+    $item = $event->getItem();
+    $block = $event->getBlock();
 
-      if ($item instanceof Tool && $item->getCustomName() === TextFormat::RED . "Hammer") {
-    $level = $block->getLevel();
-    $radius = 1; // 3x3 hole, so radius is 1 block in each direction
-    for ($x = -$radius; $x <= $radius; $x++) {
-        for ($z = -$radius; $z <= $radius; $z++) {
-            $pos = $block->add($x, 0, $z);
-            $bpos = $level->getBlockAt($pos->x, $pos->y, $pos->z)->getId();
-            if ($bpos !== Item::BEDROCK && $bpos !== Item::OBSIDIAN) {
-                $level->setBlockIdAt($pos->x, $pos->y, $pos->z, Item::AIR);
-                $item = Item::get($bpos, 0, 1);
-                $level->dropItem($pos, $item);
+    if ($item instanceof Tool && $item->getCustomName() === TextFormat::RED . "Hammer") {
+        $level = $block->getLevel();
+        $radius = 1; // 3x3 hole, so radius is 1 block in each direction
+        for ($x = -$radius; $x <= $radius; $x++) {
+            for ($z = -$radius; $z <= $radius; $z++) {
+                $pos = $block->add($x, 0, $z);
+                $bpos = $level->getBlockAt($pos->x, $pos->y, $pos->z)->getId();
+                if ($bpos !== Item::BEDROCK && $bpos !== Item::OBSIDIAN) {
+                    $level->setBlockIdAt($pos->x, $pos->y, $pos->z, Item::AIR);
+                    $item = Item::get($bpos, 0, 1);
+                    $level->dropItem($pos, $item);
+                }
             }
         }
     }
-}        
+}
