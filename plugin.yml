@@ -3,8 +3,8 @@ main: georgianYT\Hammer\Main
 api: 5.0.0
 version: 1.0
 website: https://github.com/georgianYT/Hammer-PMMP/
-author: georgianYT
+author: georgianYT, BajanDoesYT
 
-commands:
-  hammer:
-    permission: hammer.give
+permissions:
+  hammer.give:
+    default: op
