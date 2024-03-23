@@ -45,7 +45,7 @@ class Main extends PluginBase implements Listener {
     return false;
 }
 
-    public function onBlockBreak(BlockBreakEvent $event){
+    public function onBlockBreak(BlockBreakEvent $event) {
         $player = $event->getPlayer();
         $item = $event->getItem();
         $block = $event->getBlock();
