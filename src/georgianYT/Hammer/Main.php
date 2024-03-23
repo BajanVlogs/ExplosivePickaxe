@@ -20,7 +20,7 @@ class Main extends PluginBase implements Listener {
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
     }
 }
-   public function onCommand(CommandSender $sender, Command $cmd, string $label, array $args): bool {
+  public function onCommand(CommandSender $sender, Command $cmd, string $label, array $args): bool {
     switch ($cmd->getName()) {
         case "hammer":
             if ($sender instanceof Player) {
