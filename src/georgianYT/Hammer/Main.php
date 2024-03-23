@@ -44,25 +44,77 @@ class Main extends PluginBase implements Listener {
         return false;
     }
 
-    public function onBlockBreak(BlockBreakEvent $event): void {
-        $player = $event->getPlayer();
-        $item = $event->getItem();
-        $block = $event->getBlock();
+   public function onBlockBreak(BlockBreakEvent $event){
+		$player = $event->getPlayer();
+		$item = $event->getItem();
+		$block = $event->getBlock();
 
-        if ($item->getId() === Item::DIAMOND_PICKAXE && $item->getCustomName() === TextFormat::RED . "Hammer") {
-            $level = $player->getLevel();
-            for ($count = 0; $count >= -2; $count--) {
-                for ($x = -1; $x <= 1; $x++) {
-                    for ($z = -1; $z <= 1; $z++) {
-                        $bpos = $level->getBlockIdAt($block->x + $x, $block->y + $count, $block->z + $z);
-                        if ($bpos !== Block::AIR && $bpos !== Block::BEDROCK) {
-                            $level->setBlockIdAt($block->x + $x, $block->y + $count, $block->z + $z, 0);
-                            $item = Item::get($bpos, 0, 1);
-                            $level->dropItem(new Vector3($block->x + $x, $block->y + $count, $block->z + $z), $item);
-                        }
-                    }
-                }
-            }
-        }
-    }
+		if($item->getId() == 257 && $item->getCustomName() == TextFormat::RED . "Hammer"){
+			$level = $player->getLevel();
+			for($count = 0; $count >= -2; $count--){
+				$bpos = $level->getBlockIdAt($block->x + 1, $block->y + $count, $block->z);
+				if($bpos != 7 && $bpos != 49){
+					$level->setBlockIdAt($block->x + 1, $block->y + $count, $block->z, 0);
+					$item = Item::get($bpos, 0, 1);	
+					$level->dropItem(new Vector3($block->x + 1, $block->y + $count, $block->z), $item);
+				}
+				$bpos = $level->getBlockIdAt($block->x - 1, $block->y + $count, $block->z);
+				if($bpos != 7 && $bpos != 49){
+					$level->setBlockIdAt($block->x - 1, $block->y + $count, $block->z, 0);
+					$item = Item::get($bpos, 0, 1);	
+					$level->dropItem(new Vector3($block->x - 1, $block->y + $count, $block->z), $item);
+				}
+				$bpos = $level->getBlockIdAt($block->x - 1, $block->y + $count, $block->z + 1);
+				if($bpos != 7 && $bpos != 49){
+					$level->setBlockIdAt($block->x - 1, $block->y + $count, $block->z + 1, 0);
+					$item = Item::get($bpos, 0, 1);	
+					$level->dropItem(new Vector3($block->x - 1, $block->y + $count, $block->z + 1), $item);
+				}
+				$bpos = $level->getBlockIdAt($block->x, $block->y + $count, $block->z + 1);
+				if($bpos != 7 && $bpos != 49){
+					$level->setBlockIdAt($block->x, $block->y + $count, $block->z + 1, 0);
+					$item = Item::get($bpos, 0, 1);	
+					$level->dropItem(new Vector3($block->x, $block->y + $count, $block->z + 1), $item);
+				}
+				$bpos = $level->getBlockIdAt($block->x + 1, $block->y + $count, $block->z + 1);
+				if($bpos != 7 && $bpos != 49){
+					$level->setBlockIdAt($block->x + 1, $block->y + $count, $block->z + 1, 0);
+					$item = Item::get($bpos, 0, 1);	
+					$level->dropItem(new Vector3($block->x + 1, $block->y + $count, $block->z + 1), $item);
+				}
+				$bpos = $level->getBlockIdAt($block->x - 1, $block->y + $count, $block->z - 1);
+				if($bpos != 7 && $bpos != 49){
+					$level->setBlockIdAt($block->x - 1, $block->y + $count, $block->z - 1, 0);
+					$item = Item::get($bpos, 0, 1);	
+					$level->dropItem(new Vector3($block->x - 1, $block->y + $count, $block->z - 1), $item);
+				}
+				$bpos = $level->getBlockIdAt($block->x, $block->y + $count, $block->z - 1);
+				if($bpos != 7 && $bpos != 49){
+					$level->setBlockIdAt($block->x, $block->y + $count, $block->z - 1, 0);
+					$item = Item::get($bpos, 0, 1);	
+					$level->dropItem(new Vector3($block->x, $block->y + $count, $block->z - 1), $item);
+				}
+				$bpos = $level->getBlockIdAt($block->x + 1, $block->y + $count, $block->z - 1);
+				if($bpos != 7 && $bpos != 49){
+					$level->setBlockIdAt($block->x + 1, $block->y + $count, $block->z - 1, 0);
+					$item = Item::get($bpos, 0, 1);	
+					$level->dropItem(new Vector3($block->x + 1, $block->y + $count, $block->z - 1), $item);
+				}
+			}
+			$bpos = $level->getBlockIdAt($block->x, $block->y - 1, $block->z);
+			if($bpos != 7 && $bpos != 49){
+				$level->setBlockIdAt($block->x, $block->y - 1, $block->z, 0);
+				$item = Item::get($bpos, 0, 1);	
+				$level->dropItem(new Vector3($block->x, $block->y - 1, $block->z), $item);
+			}
+			$bpos = $level->getBlockIdAt($block->x, $block->y - 2, $block->z);
+			if($bpos != 7 && $bpos != 49){
+				$level->setBlockIdAt($block->x, $block->y - 2, $block->z, 0);
+				$item = Item::get($bpos, 0, 1);	
+				$level->dropItem(new Vector3($block->x, $block->y - 2, $block->z), $item);
+			}
+		}
+	}
+
+
 }
