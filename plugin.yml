@@ -5,7 +5,6 @@ version: 1.0
 website: https://github.com/georgianYT/Hammer-PMMP/
 author: georgianYT
 
-permissions:
-  hammer.give:
-    description: Allows players to use the hammer command
-    default: op
+commands:
+  hammer:
+    permission: hammer.give
