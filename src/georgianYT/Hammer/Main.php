@@ -58,9 +58,10 @@ class Main extends PluginBase implements Listener {
             for ($x = -$radius; $x <= $radius; $x++) {
                 for ($z = -$radius; $z <= $radius; $z++) {
                     $pos = $block->getPosition()->add($x, 0, $z);
-                    $bpos = $world->getBlockAt($pos->x, $pos->y, $pos->z)->getTypeId();
-                    if ($bpos !== VanillaBlocks::BEDROCK()->getTypeId() && $bpos !== VanillaBlocks::OBSIDIAN()->getTypeId()) {
-                        $world->setBlockAt($pos->x, $pos->y, $pos->z, VanillaBlocks::AIR()->getTypeId());
+                    $bpos = $world->getBlockAt($pos->x, $pos->y, $pos->z)();
+                    if ($bpos !== VanillaBlocks::BEDROCK() && $bpos !== VanillaBlocks::OBSIDIAN()) {
+                        $airBlock = VanillaBlocks::AIR();
+                        $world->setBlock($pos, $airBlock, false);
                         $world->dropItem($pos, $bpos);
                     }
                 }
