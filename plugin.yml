@@ -1,10 +1,16 @@
 name: Hammer
 main: georgianYT\Hammer\Main
 api: 5.0.0
-version: 1.0
+version: 1.1
 website: https://github.com/georgianYT/Hammer-PMMP/
-author: georgianYT, BajanDoesYT
+author: georgianYT, BajanDoesYT, Terpz710(Main updater)
+
+commands:
+ hammer:
+  description: "Allows the user to get hammers and spawn them."
+  permission: "hammer.give"
 
 permissions:
   hammer.give:
+    description: "Allows the user to get hammers and spawn them."
     default: op
